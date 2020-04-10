@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-
+import useDarkMode from 'use-dark-mode';
 import './App.css';
 import Card from './Components/Card';
+import DarkModeToggle from './Components/DarkModeToggle';
 import Switch from './Components/Switch';
 
 class App extends React.Component {
@@ -10,15 +11,14 @@ class App extends React.Component {
         super();
         this.state = {
             players: [],
-            check: false,
         };
     }
+
     componentDidMount() {
         axios.get('http://localhost:5000/api/players').then((response) => {
             console.log(response.data);
             this.setState({
                 players: response.data,
-                check: false,
             });
         });
     }
@@ -30,12 +30,11 @@ class App extends React.Component {
                 <header>
                     <h1>Advanced React</h1>
                     {/* Displaying of said Switch in the header area */}
-                    <Switch />
+                    <DarkModeToggle />
                 </header>
-                <section>
-                    {/* A div to hold the players at some point */}
+                <div>
                     <Card players={this.state.players} />
-                </section>
+                </div>
             </div>
         );
     }
