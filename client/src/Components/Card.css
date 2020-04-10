@@ -1,0 +1,11 @@
+.box {
+    width: 80%;
+    margin: 2% auto;
+    border: 1px solid grey;
+}
+.flexMe {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 0 auto;
+}
