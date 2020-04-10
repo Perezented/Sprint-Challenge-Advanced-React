@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 import './App.css';
@@ -18,6 +18,7 @@ class App extends React.Component {
             console.log(response.data);
             this.setState({
                 players: response.data,
+                check: false,
             });
         });
     }
@@ -29,7 +30,7 @@ class App extends React.Component {
                 <header>
                     <h1>Advanced React</h1>
                     {/* Displaying of said Switch in the header area */}
-                    <Switch isOn={this.state.check} />
+                    <Switch />
                 </header>
                 <section>
                     {/* A div to hold the players at some point */}
